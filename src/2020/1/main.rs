@@ -50,6 +50,6 @@ fn solve_generic(input: &[u32], n: usize) -> Option<u32> {
         if v.iter().fold(0, |acc, x| acc + *x) == 2020 {
             return Some(v.iter().fold(1, |acc, x| acc * *x));
         }
-    }    
+    }
     None
 }
