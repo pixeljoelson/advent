@@ -7,15 +7,10 @@ lazy_static! {
     static ref RE: Regex = Regex::new(r"^(\d+)-(\d+) (\w): (\w+)$").unwrap();
 }
 
-fn main() -> Result<(), String> {
-    let path = std::env::args().nth(1).unwrap_or("input.txt".to_owned());
-    if let Ok(input) = std::fs::read_to_string(&path) {
-        println!("{}", part_1(&input));
-        println!("{}", part_2(&input));
-        Ok(())
-    } else {
-        Err(format!("file {} not found", &path))
-    }
+fn main() {
+    let input = advent::get_input();
+    println!("{}", part_1(&input));
+    println!("{}", part_2(&input));
 }
 
 fn part_1(input: &str) -> usize {
