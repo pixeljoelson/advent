@@ -1,14 +1,13 @@
-use std::fs::File;
-
 use lazy_static::lazy_static;
 use regex::Regex;
 
+static INPUT: &str = include_str!("input.txt");
 lazy_static! {
     static ref RE: Regex = Regex::new(r"^(\d+)-(\d+) (\w): (\w+)$").unwrap();
 }
 
 fn main() {
-    let input = advent::get_input();
+    let input = advent::get_input!();
     println!("{}", part_1(&input));
     println!("{}", part_2(&input));
 }
@@ -52,7 +51,6 @@ fn parse(s: &str) -> (usize, usize, char, &str) {
 #[cfg(test)]
 mod tests {
     use super::*;
-    static INPUT: &str = include_str!("input.txt");
 
     #[test]
     fn test_part_1() {
