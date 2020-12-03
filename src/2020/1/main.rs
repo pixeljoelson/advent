@@ -1,23 +1,25 @@
 use itertools::Itertools;
-use timed::timed;
 
 static INPUT: &str = include_str!("input.txt");
 
 fn main() {
-    let input: Vec<u32> = advent::get_input!()
-        .lines()
-        .map(|x| x.parse().unwrap())
-        .collect();
+    let input: Vec<u32> = parse(&advent::get_input!());
+        
     solve_manual(&input);
     solve_auto(&input);
 }
 
-#[timed]
+fn parse(s: &str) -> Vec<u32> {
+    s.lines()
+        .map(|x| x.parse().unwrap())
+        .collect()
+}
+
 fn solve_manual(input: &[u32]) {
     println!("{:?}", part_1(&input));
     println!("{:?}", part_2(&input));
 }
-#[timed]
+
 fn solve_auto(input: &[u32]) {
     println!("{:?}", generic(&input, 2));
     println!("{:?}", generic(&input, 3));
@@ -54,4 +56,19 @@ fn generic(input: &[u32], n: usize) -> Option<u32> {
         }
     }
     None
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_part_1() {
+        assert_eq!(1019571, part_1(&parse(INPUT)).unwrap());
+    }
+
+    #[test]
+    fn test_part_2() {
+        assert_eq!(100655544, part_2(&parse(INPUT)).unwrap());
+    }
 }
