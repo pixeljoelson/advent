@@ -4,15 +4,13 @@ static INPUT: &str = include_str!("input.txt");
 
 fn main() {
     let input: Vec<u32> = parse(&advent::get_input!());
-        
+
     solve_manual(&input);
     solve_auto(&input);
 }
 
 fn parse(s: &str) -> Vec<u32> {
-    s.lines()
-        .map(|x| x.parse().unwrap())
-        .collect()
+    s.lines().map(|x| x.parse().unwrap()).collect()
 }
 
 fn solve_manual(input: &[u32]) {

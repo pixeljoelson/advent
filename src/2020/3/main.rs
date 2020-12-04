@@ -2,17 +2,13 @@ static INPUT: &str = include_str!("input.txt");
 
 fn main() {
     let input = advent::get_input!();
- 
+
     let (input, width) = parse(&input);
     println!("{}", part_1(&input, width, (3, 1)));
-    println!("{}", part_2(&input, width, &[
-        (1, 1),
-        (3, 1),
-        (5, 1),
-        (7, 1),
-        (1, 2)
-    ]));
-
+    println!(
+        "{}",
+        part_2(&input, width, &[(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)])
+    );
 }
 
 fn parse(s: &str) -> (Vec<u8>, usize) {
@@ -44,7 +40,6 @@ fn part_2(input: &[u8], width: usize, slopes: &[(usize, usize)]) -> usize {
     results.iter().fold(1usize, |acc, n| acc * *n)
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -58,12 +53,9 @@ mod tests {
     #[test]
     fn test_part_2() {
         let (input, width) = parse(INPUT);
-        assert_eq!(2138320800, part_2(&input, width, &[
-            (1, 1),
-            (3, 1),
-            (5, 1),
-            (7, 1),
-            (1, 2)
-        ]));
+        assert_eq!(
+            2138320800,
+            part_2(&input, width, &[(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)])
+        );
     }
 }

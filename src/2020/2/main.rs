@@ -28,8 +28,8 @@ fn part_2(input: &str) -> usize {
     let mut output: usize = 0;
     for l in input.lines() {
         let (first, second, letter, pass) = parse(l);
-        let first = letter == pass.chars().nth(first-1).unwrap();
-        let second = letter == pass.chars().nth(second-1).unwrap();
+        let first = letter == pass.chars().nth(first - 1).unwrap();
+        let second = letter == pass.chars().nth(second - 1).unwrap();
         if first != second {
             output += 1;
         }
@@ -44,7 +44,7 @@ fn parse(s: &str) -> (usize, usize, char, &str) {
         caps[1].parse().unwrap(),
         caps[2].parse().unwrap(),
         caps[3].parse().unwrap(),
-        &s[pass.start()..pass.end()]
+        &s[pass.start()..pass.end()],
     )
 }
 
@@ -56,7 +56,7 @@ mod tests {
     fn test_part_1() {
         assert_eq!(655, part_1(INPUT));
     }
-    
+
     #[test]
     fn test_part_2() {
         assert_eq!(673, part_2(INPUT));

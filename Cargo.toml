@@ -11,6 +11,8 @@ itertools = "0.9.0"
 timed = "0.1.5"
 regex = "1.4.2"
 lazy_static = "1.4.0"
+sugars = "2.0.0"
+tap = "1.0.0"
 
 
 [[bin]]
@@ -24,3 +26,7 @@ path = "src/2020/2/main.rs"
 [[bin]]
 name = "2020-3"
 path = "src/2020/3/main.rs"
+
+[[bin]]
+name = "2020-4"
+path = "src/2020/4/main.rs"
